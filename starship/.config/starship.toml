@@ -21,6 +21,8 @@ $time\
 [ ](fg:#1d2230)\
 \n$character"""
 
+command_timeout = 5000 
+
 [fill]
 symbol = ' '
 
