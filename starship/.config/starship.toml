@@ -2,6 +2,8 @@ format = """
 [░▒▓](#a3aed2)\
 [  ](bg:#a3aed2 fg:#090c0c)\
 [](bg:#769ff0 fg:#a3aed2)\
+$username\
+$hostname\
 $directory\
 [](fg:#769ff0 bg:#394260)\
 $git_branch\
@@ -21,10 +23,24 @@ $time\
 [ ](fg:#1d2230)\
 \n$character"""
 
-command_timeout = 5000 
+
+[hostname]
+style = "fg:#e3e5e5 bg:#769ff0"
+ssh_only = false
+symbol = '🌐'
+format = '[$hostname]($style)'
+trim_at = '.'
+
+[username]
+style_user = 'fg:#e3e5e5 bg:#769ff0'
+style_root = 'black bold'
+format = '[$user@]($style)'
+disabled = false
+show_always = true
+aliases = { "corpuser034g" = "matchai" }
 
 [fill]
-symbol = ' '
+symbol = ' ' 
 
 [python]
 style = 'teal'
