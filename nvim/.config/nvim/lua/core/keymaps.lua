@@ -16,21 +16,9 @@ k.set("n", "<leader>bn", v.cmd.bnext)
 
 k.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
 
+
 -- Exit insert mode without hitting Esc
 k.set("i", "jj", "<Esc><Esc>", { desc = "Esc" })
-
------------- Telescope keymapings (grep для neovim)
---find files 
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") 
--- live grep 
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") 
--- find string under cursor 
-vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") 
--- display list of open buffers
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-
--- vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, {desc= "[?] Find recently"})
-
 
 -- Resize with arrows
 -- k.set("n", "<C-S-Down>", ":resize +2<CR>", { desc = "Resize Horizontal Split Down" })
@@ -49,4 +37,3 @@ k.set("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy Fil
 k.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Close Buffer" })
 -- Close buffer without closing split
 k.set("n", "<leader>w", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
-
