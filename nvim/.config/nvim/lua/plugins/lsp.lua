@@ -9,7 +9,15 @@ return {
     'williamboman/mason-lspconfig.nvim',
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'stylua' },
+        -- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
+        ensure_installed = {
+          'ruff',
+          'pyright',
+          'lua_ls',
+          'groovyls',
+          'eslint',
+          'yamlls',
+        },
       })
     end,
   },
