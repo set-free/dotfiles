@@ -16,6 +16,7 @@ return {
         'yaml',
         'groovy',
         'html',
+        'json',
       },
       sync_install = false,
       auto_install = true,
