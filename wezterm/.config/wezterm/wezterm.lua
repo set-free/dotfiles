@@ -47,6 +47,8 @@ config.keys = {
 	{ mods = "LEADER", key = "RightArrow", action = wezterm.action.AdjustPaneSize({ "Right", 10 }) },
 	{ mods = "LEADER", key = "DownArrow", action = wezterm.action.AdjustPaneSize({ "Down", 10 }) },
 	{ mods = "LEADER", key = "UpArrow", action = wezterm.action.AdjustPaneSize({ "Up", 10 }) },
+	-- растянуть на весь экран
+	{ key = "n", mods = "SHIFT|CTRL", action = wezterm.action.ToggleFullScreen },
 }
 
 -- показывать значё волны когда вкл. лидер режим.
