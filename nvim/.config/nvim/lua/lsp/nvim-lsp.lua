@@ -8,13 +8,13 @@ vim.lsp.enable({
   'rust-analyzer',
 })
 
-vim.diagnostic.config({
-  -- virtual_text = { current_line = false },
-  virtual_lines = true,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = true,
-})
+-- vim.diagnostic.config({
+--   -- virtual_text = { current_line = false },
+--   virtual_lines = true,
+--   underline = true,
+--   update_in_insert = true,
+--   severity_sort = true,
+-- })
 
 -- ручное добавление настройки для lsp-server
 -- Example #1
