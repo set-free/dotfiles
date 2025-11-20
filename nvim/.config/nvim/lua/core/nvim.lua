@@ -1,7 +1,9 @@
 local o = vim.opt
 local g = vim.g
 
+-- Требует наличия xclip или wl-copy!
 o.clipboard = "unnamedplus"  -- allows neovim to access the system clipboard
+
 o.fileencoding = "utf-8"     -- the encoding written to a file
 o.hlsearch = true            -- highlight all matches on previous search pattern
 o.ignorecase = true          -- ignore case in search patterns
@@ -19,8 +21,31 @@ o.relativenumber = true      -- set relative (number line from current)
 o.signcolumn = "yes"         -- always show the sign column, otherwise it would shift the text each time
 o.wrap = false               -- display lines as one long line
 
+
+o.spell = false
 o.spelllang= { 'en_us', 'ru' }  -- Словари рус eng
 o.bufhidden = "hide"            -- не показывать буферы
+
+o.wildmenu = true
+o.wildmode = "longest:full,full"
+
+
+-- Форматирование при сохранении
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--  callback = function()
+--    vim.lsp.buf.format {
+--      async = false
+--    }
+--  end,
+--})
+
+-- Показывать всплывающие окна с ошибками при наведении курсора
+-- 5 sec.
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false })
+  end,
+})
 
 -- o.colorcolumn = "120"             -- Линиия ограничения
 -- Не автокомментировать новые линии при переходе на новую строку

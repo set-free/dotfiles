@@ -1,21 +1,31 @@
 local k = vim.keymap
 local v = vim
--- global leader key is <Space> 
+-- global leader key is <Space>
 v.g.mapleader = " "
 
 --- {n - normal mode}, {пробел_pv - хоткей}, {выполняемая команда}
 k.set("n", "<leader>pv", v.cmd.Ex)
 
--- in normal mode, use <space>v or <space>sh to run specific commands 
+-- in normal mode, use <space>v or <space>sh to run specific commands
 k.set("n", "<leader>sv", "<C-w>v") -- to split the screen vertically
 k.set("n", "<leader>sh", "<C-w>s") -- splits screen horizontally
 
--- упревлние буферами(похожи на табы сверху)  
+-- упревлние буферами(похожи на табы сверху)
 k.set("n", "<leader>bp", v.cmd.bprevious)
 k.set("n", "<leader>bn", v.cmd.bnext)
 
 k.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
 
+
+------------------- Hotkeys for LSP -----------------
+--- Документация к LSP серверам -> `:h vim.lsp.buf`
+k.set('n', 'K', vim.lsp.buf.hover, {})
+k.set('n', 'gd', vim.lsp.buf.definition, {})
+k.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+k.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+k.set('n', '<leader>gf', vim.lsp.buf.format, {}) -- форматировать текст
+k.set('n', '<leader>li', '<cmd>LspInfo<CR>', opts)
+--k.set('n', '<leader>lc', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
 -- Exit insert mode without hitting Esc
 k.set("i", "jj", "<Esc><Esc>", { desc = "Esc" })
@@ -37,3 +47,7 @@ k.set("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy Fil
 k.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Close Buffer" })
 -- Close buffer without closing split
 k.set("n", "<leader>w", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
+
+--
+-- Ctrl-S по умолчанию в режиме редактирования вызывает справку(парметры для функции например)
+-- Так же нам не нужны никакие плагины для комментариев — для этого есть сочетание gc (выделить и нажать gc)
