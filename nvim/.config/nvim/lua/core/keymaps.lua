@@ -64,6 +64,11 @@ vim.api.nvim_create_autocmd(
 			k.set("n", "gr", vim.lsp.buf.references, opts)
 			-- Open the diagnostic under the cursor in a float window
 			k.set("n", "<leader>d", function() vim.diagnostic.open_float({ border = "rounded" }) end, opts)
+
+			k.set("n", "<leader>h", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+				vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay Hints Enabled" or "Inalay Hints Disabled")
+			end, opts)
 		end,
 	}
 )

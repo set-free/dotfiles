@@ -9,7 +9,7 @@ return {
       require('mason').setup()
       require('mason-lspconfig').setup({
         -- https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
-        ensure_installed = { 'ruff', 'pyright', 'lua_ls', 'eslint', 'yamlls'}
+        ensure_installed = { 'ruff', 'pyright', 'lua_ls', 'eslint', 'yamlls', 'rust_analyzer'}
     })
 
     vim.diagnostic.config({

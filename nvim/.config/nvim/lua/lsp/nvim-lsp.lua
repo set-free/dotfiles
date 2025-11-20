@@ -24,10 +24,50 @@ vim.lsp.enable({
 --   filetypes = { 'c', 'cpp' },
 -- }
 --
-vim.lsp.config('rust_analyzer', {
+vim.lsp.config('rust-analyzer', {
   capabilities = capabilities,
   settings = {
-    ['rust-analyzer'] = {
+    ['rust_analyzer'] = {
+      cargo = {
+          allFeatures = true,
+      },
+      completion = {
+          postfix = {
+              enable = false,
+          },
+      },
+      inlayHints = {
+        bindingModeHints = {
+          enable = false,
+        },
+        chainingHints = {
+          enable = true,
+        },
+        closingBraceHints = {
+          enable = true,
+          minLines = 25,
+        },
+        closureReturnTypeHints = {
+          enable = "never",
+        },
+        lifetimeElisionHints = {
+          enable = "never",
+          useParameterNames = false,
+        },
+        maxLength = 25,
+        parameterHints = {
+          enable = true,
+        },
+        reborrowHints = {
+          enable = "never",
+        },
+        renderColons = true,
+        typeHints = {
+          enable = true,
+          hideClosureInitialization = false,
+          hideNamedConstructor = false,
+        },
+      },
       checkOnSave = {
         command = "clippy",
       },
@@ -35,9 +75,28 @@ vim.lsp.config('rust_analyzer', {
   },
 })
 
-vim.lsp.config['pyright'] = {
-  capabilities = capabilities
-}
+vim.lsp.config('pyright', {
+  settings= {
+  python = {
+  inlayHints = {
+      enable = true,
+      parameterHints = {
+          enable = true,
+          showParameterNames = true,
+          showReturnType = true,
+          showTypeArguments = true,
+      },
+      typeHints = {
+          enable = true,
+          showTypeArguments = true,
+          showReturnType = true,
+      },
+  },
+		},
+	},
+  parameterHintsPosition = "right",
+  capabilities = capabilities,
+})
 
 -- Autocompletion
 vim.api.nvim_create_autocmd('LspAttach', {
