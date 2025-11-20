@@ -1,4 +1,4 @@
-return {
-  cmd = { 'pyright-langserver' },
-  filetypes = 'python',
-}
+-- return {
+--   cmd = { 'pyright-langserver' },
+--   filetypes = 'python',
+-- }
