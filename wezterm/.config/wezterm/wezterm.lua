@@ -47,7 +47,9 @@ config.keys = {
 	{ mods = "LEADER", key = "RightArrow", action = wezterm.action.AdjustPaneSize({ "Right", 10 }) },
 	{ mods = "LEADER", key = "DownArrow", action = wezterm.action.AdjustPaneSize({ "Down", 10 }) },
 	{ mods = "LEADER", key = "UpArrow", action = wezterm.action.AdjustPaneSize({ "Up", 10 }) },
-	-- растянуть на весь экран
+	-- растянуть на весь экран панель
+	{ mods = "LEADER",key = "m",  action = wezterm.action.TogglePaneZoomState },
+	-- растянуть на весь экран окно
 	{ key = "n", mods = "SHIFT|CTRL", action = wezterm.action.ToggleFullScreen },
 }
 
