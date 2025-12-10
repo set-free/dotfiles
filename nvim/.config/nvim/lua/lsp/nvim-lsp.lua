@@ -1,8 +1,9 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 vim.lsp.enable({
-  'pyright',
--- 'stylua',
+  'basedpyright',
+  --  'pyright',
+  -- 'stylua',
   'luals',
   'ruff',
   'rust-analyzer',
@@ -29,12 +30,12 @@ vim.lsp.config('rust-analyzer', {
   settings = {
     ['rust_analyzer'] = {
       cargo = {
-          allFeatures = true,
+        allFeatures = true,
       },
       completion = {
-          postfix = {
-              enable = false,
-          },
+        postfix = {
+          enable = false,
+        },
       },
       inlayHints = {
         bindingModeHints = {
@@ -48,10 +49,10 @@ vim.lsp.config('rust-analyzer', {
           minLines = 25,
         },
         closureReturnTypeHints = {
-          enable = "never",
+          enable = 'never',
         },
         lifetimeElisionHints = {
-          enable = "never",
+          enable = 'never',
           useParameterNames = false,
         },
         maxLength = 25,
@@ -59,7 +60,7 @@ vim.lsp.config('rust-analyzer', {
           enable = true,
         },
         reborrowHints = {
-          enable = "never",
+          enable = 'never',
         },
         renderColons = true,
         typeHints = {
@@ -69,32 +70,55 @@ vim.lsp.config('rust-analyzer', {
         },
       },
       checkOnSave = {
-        command = "clippy",
+        command = 'clippy',
       },
     },
   },
 })
 
 vim.lsp.config('pyright', {
-  settings= {
-  python = {
-  inlayHints = {
-      enable = true,
-      parameterHints = {
+  settings = {
+    python = {
+      inlayHints = {
+        enable = true,
+        parameterHints = {
           enable = true,
           showParameterNames = true,
           showReturnType = true,
           showTypeArguments = true,
-      },
-      typeHints = {
+        },
+        typeHints = {
           enable = true,
           showTypeArguments = true,
           showReturnType = true,
+        },
       },
+    },
   },
-		},
-	},
-  parameterHintsPosition = "right",
+  parameterHintsPosition = 'right',
+  capabilities = capabilities,
+})
+
+vim.lsp.config('basedpyright', {
+  settings = {
+    python = {
+      inlayHints = {
+        enable = true,
+        parameterHints = {
+          enable = true,
+          showParameterNames = true,
+          showReturnType = true,
+          showTypeArguments = true,
+        },
+        typeHints = {
+          enable = true,
+          showTypeArguments = true,
+          showReturnType = true,
+        },
+      },
+    },
+  },
+  parameterHintsPosition = 'right',
   capabilities = capabilities,
 })
 
