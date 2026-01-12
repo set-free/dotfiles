@@ -58,6 +58,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
 })
 
+-- pretty icon for diagnostics
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    }
+  }
+})
+
 -- o.colorcolumn = "120"             -- Линиия ограничения
 -- Не автокомментировать новые линии при переходе на новую строку
 -- vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
