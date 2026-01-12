@@ -28,6 +28,7 @@ o.bufhidden = 'hide' -- не показывать буферы
 
 o.wildmenu = true
 o.wildmode = 'longest:full,full'
+--o.winborder = 'rounded'
 
 -- Форматирование при сохранении
 --vim.api.nvim_create_autocmd("BufWritePre", {

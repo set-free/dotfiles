@@ -13,6 +13,7 @@ return {
   { 'hrsh7th/cmp-cmdline' },
   {
     'hrsh7th/nvim-cmp',
+    event = 'VeryLazy',
     config = function()
       local cmp = require('cmp')
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
