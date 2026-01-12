@@ -2,8 +2,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 vim.lsp.enable({
   'basedpyright',
-  -- 'pyright',
-  -- 'luals',
   'stylua',
   'ruff',
   'rust-analyzer',
@@ -76,28 +74,28 @@ vim.lsp.config('rust-analyzer', {
   },
 })
 
-vim.lsp.config('pyright', {
-  settings = {
-    python = {
-      inlayHints = {
-        enable = true,
-        parameterHints = {
-          enable = true,
-          showParameterNames = true,
-          showReturnType = true,
-          showTypeArguments = true,
-        },
-        typeHints = {
-          enable = true,
-          showTypeArguments = true,
-          showReturnType = true,
-        },
-      },
-    },
-  },
-  parameterHintsPosition = 'right',
-  capabilities = capabilities,
-})
+-- vim.lsp.config('pyright', {
+--   settings = {
+--     python = {
+--       inlayHints = {
+--         enable = true,
+--         parameterHints = {
+--           enable = true,
+--           showParameterNames = true,
+--           showReturnType = true,
+--           showTypeArguments = true,
+--         },
+--         typeHints = {
+--           enable = true,
+--           showTypeArguments = true,
+--           showReturnType = true,
+--         },
+--       },
+--     },
+--   },
+--   parameterHintsPosition = 'right',
+--   capabilities = capabilities,
+-- })
 
 vim.lsp.config('basedpyright', {
   settings = {
@@ -122,15 +120,15 @@ vim.lsp.config('basedpyright', {
   capabilities = capabilities,
 })
 
--- Autocompletion
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-    end
-  end,
-})
+-- Autocompletion (set first complete what find)
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   callback = function(ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if client:supports_method('textDocument/completion') then
+--       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--     end
+--   end,
+-- })
 
 ----------------------------------------------------------------------------------
 -- For Astral Ty
