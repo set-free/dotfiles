@@ -28,6 +28,8 @@ o.bufhidden = 'hide' -- не показывать буферы
 
 o.wildmenu = true
 o.wildmode = 'longest:full,full'
+o.completeopt = {'menu', 'menuone', 'noselect'} -- оставить пустым автокомплит
+
 --o.winborder = 'rounded'
 
 -- Форматирование при сохранении
@@ -63,12 +65,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.diagnostic.config({
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
-    }
-  }
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '',
+    },
+  },
 })
 
 -- o.colorcolumn = "120"             -- Линиия ограничения
