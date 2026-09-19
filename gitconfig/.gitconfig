@@ -1,0 +1,17 @@
+[user]
+  name = Ivan Savelyev
+  email = s.i.v.892@gmail.com
+[init]
+  defaultBranch = master
+  defaultRefFormat = files
+[feature]
+  experimental = true
+[core]
+  pager = delta
+  editor = nvim
+[interactive]
+  diffFilter = delta --color-only
+[diff]
+  algorithm = histogram
+  colorMoved = default
+  mnemonicPrefix = true
